@@ -1,0 +1,33 @@
+{% if page.previous or page.next %}
+<nav class="pagination custom-post-nav" aria-label="文章导航">
+
+  {% if page.previous %}
+    <a href="{{ page.previous.url | relative_url }}"
+       class="pagination--pager custom-post-nav__item custom-post-nav__item--previous"
+       title="{{ page.previous.title | escape }}">
+      <span class="custom-post-nav__label">← 上一篇</span>
+      <span class="custom-post-nav__title">{{ page.previous.title }}</span>
+    </a>
+  {% else %}
+      <span class="pagination--pager disabled custom-post-nav__item custom-post-nav__item--previous">
+      <span class="custom-post-nav__label">← 上一篇</span>
+      <span class="custom-post-nav__title">没有更多文章</span>
+    </span>
+  {% endif %}
+
+  {% if page.next %}
+    <a href="{{ page.next.url | relative_url }}"
+       class="pagination--pager custom-post-nav__item custom-post-nav__item--next"
+       title="{{ page.next.title | escape }}">
+      <span class="custom-post-nav__label">下一篇 →</span>
+      <span class="custom-post-nav__title">{{ page.next.title }}</span>
+    </a>
+  {% else %}
+    <span class="pagination--pager disabled custom-post-nav__item custom-post-nav__item--next">
+      <span class="custom-post-nav__label">下一篇 →</span>
+      <span class="custom-post-nav__title">没有更多文章</span>
+    </span>
+  {% endif %}
+
+</nav>
+{% endif %}
