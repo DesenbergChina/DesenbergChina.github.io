@@ -1,0 +1,15 @@
+# 顶部导航栏配置
+
+main:
+  - title: "首页"
+    url: /
+  - title: "博客文章"
+    url: /posts/
+  - title: "作品集"
+    url: /portfolio/
+  - title: "分类归档"
+    url: /categories/
+  - title: "标签云"
+    url: /tags/
+  - title: "关于我"
+    url: /about/

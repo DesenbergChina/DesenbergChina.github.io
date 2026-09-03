@@ -1,0 +1,16 @@
+# _data/authors.yml 作者信息配置（多作者模式，default代表默认作者）
+default:
+  name: "Desenberg"
+  avatar: "/assets/images/bio-photo.jpg" # 头像图片路径，建议将图片文件存放到对应的目录下
+  bio: "全栈开发者 / 技术博主 / 开源爱好者" # 个人简介，会显示在头像下方
+  location: "杭州/hang zhou 中国/CN" # 你的所在地区
+  links: # 社交链接菜单，会显示在侧边栏中
+    - label: "GitHub"
+      icon: "fab fa-github"
+      url: "https://github.com/desenbergChina"
+    # - label: "邮箱"
+    # icon: "fas fa-envelope"
+    # url: "mailto:XXXXX@163.com"
+    # - label: "知乎"
+    #   icon: "fab fa-zhihu"
+    #   url: "https://www.zhihu.com/yourname"
