@@ -1,0 +1,41 @@
+# Jekyll generated files
+_site
+.sass-cache
+.jekyll-cache
+.jekyll-metadata
+vendor
+
+# 辅助开发的Python代码和环境
+*.py
+.venv/
+# 文档
+docs_local/
+# docs/
+_drafts/
+
+# Bundler local files
+.bundle/
+vendor/
+
+# Local editor settings
+.vscode/
+
+# Node
+node_modules/
+
+# Logs
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+
+# Environment / secrets
+.env
+.env.*
