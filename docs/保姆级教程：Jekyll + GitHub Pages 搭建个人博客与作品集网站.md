@@ -304,29 +304,29 @@ permalink: /:categories/:title/ # 设置文章的URL结构，默认以分类和�
 
 main:
 
-&#x20; - title: "首页"
+ - title: "首页"
 
-&#x20;   url: /
+   url: /
 
-&#x20; - title: "博客文章"
+ - title: "博客文章"
 
-&#x20;   url: /posts/
+   url: /posts/
 
-&#x20; - title: "作品集"
+ - title: "作品集"
 
-&#x20;   url: /portfolio/
+   url: /portfolio/
 
-&#x20; - title: "分类归档"
+ - title: "分类归档"
 
-&#x20;   url: /categories/
+   url: /categories/
 
-&#x20; - title: "标签云"
+ - title: "标签云"
 
-&#x20;   url: /tags/
+   url: /tags/
 
-&#x20; - title: "关于我"
+ - title: "关于我"
 
-&#x20;   url: /about/
+   url: /about/
 ```
 
 ### 2.3 创建通用页面模板
@@ -375,17 +375,17 @@ permalink: /posts/
 
 pagination:
 
-&#x20; enabled: true
+ enabled: true
 
-&#x20; collection: 'posts'
+ collection: 'posts'
 
-&#x20; per_page: 10
+ per_page: 10
 
-&#x20; permalink: '/page/:num/'
+ permalink: '/page/:num/'
 
-&#x20; sort_field: 'date'
+ sort_field: 'date'
 
-&#x20; sort_reverse: true
+ sort_reverse: true
 
 ---
 
@@ -683,11 +683,11 @@ excerpt: "一个基于Python和React的个人财务数据统计分析系统，�
 
 gallery: # 项目的图片画廊，会显示在项目详情页中
 
-&#x20; - url: /assets/images/portfolio/project-1-full.jpg # 项目的完整预览图
+ - url: /assets/images/portfolio/project-1-full.jpg # 项目的完整预览图
 
-&#x20;   image_path: /assets/images/portfolio/project-1-thumb.jpg # 项目的缩略图，会显示在项目卡片中
+   image_path: /assets/images/portfolio/project-1-thumb.jpg # 项目的缩略图，会显示在项目卡片中
 
-&#x20;   alt: "系统首页的预览图" # 图片的替代文本，用于图片加载失败时的显示
+   alt: "系统首页的预览图" # 图片的替代文本，用于图片加载失败时的显示
 
 categories: [软件开发, 全栈开发] # 项目所属的分类
 
@@ -809,27 +809,27 @@ hidden: false # 设为true时，该项目不会被索引，适合保密项目
 
 comments:
 
-&#x20; provider: "giscus" # 指定使用Giscus作为评论系统
+ provider: "giscus" # 指定使用Giscus作为评论系统
 
-&#x20; giscus:
+ giscus:
 
-&#x20;   repo: "你的用户名/你的用户名.github.io" # 你的仓库完整名称
+   repo: "你的用户名/你的用户名.github.io" # 你的仓库完整名称
 
-&#x20;   repo_id: "上一步中获取的仓库ID" # 你的仓库的唯一ID，在Giscus生成的配置代码中可以找到
+   repo_id: "上一步中获取的仓库ID" # 你的仓库的唯一ID，在Giscus生成的配置代码中可以找到
 
-&#x20;   category: "Announcements" # 刚才在Discussions中创建的分类名称
+   category: "Announcements" # 刚才在Discussions中创建的分类名称
 
-&#x20;   category_id: "上一步中获取的分类ID" # 刚才创建的分类的唯一ID，在Giscus生成的配置代码中可以找到
+   category_id: "上一步中获取的分类ID" # 刚才创建的分类的唯一ID，在Giscus生成的配置代码中可以找到
 
-&#x20;   mapping: "pathname" # 页面与Discussions主题的映射规则
+   mapping: "pathname" # 页面与Discussions主题的映射规则
 
-&#x20;   input_position: "top" # 评论输入框的位置，设置在评论区列表的上方
+   input_position: "top" # 评论输入框的位置，设置在评论区列表的上方
 
-&#x20;   theme: "light" # 评论区的主题颜色，浅色模式
+   theme: "light" # 评论区的主题颜色，浅色模式
 
-&#x20;   lang: "zh-CN" # 评论区的显示语言，设置为简体中文
+   lang: "zh-CN" # 评论区的显示语言，设置为简体中文
 
-&#x20;   loading: "lazy" # 评论区的懒加载模式，只有用户滚动到评论区附近时，才加载评论数据
+   loading: "lazy" # 评论区的懒加载模式，只有用户滚动到评论区附近时，才加载评论数据
 ```
 
 上述配置项中，`repo_id`和`category_id`的值，需要替换成刚才在 Giscus 官网生成的配置代码中对应的属性值；这两个值是 Giscus 关联仓库 Discussions 的核心凭证，必须严格复制，不能有丝毫差错。
@@ -885,45 +885,45 @@ comments:
 
 [
 
-&#x20; {% for post in site.posts %}
+ {% for post in site.posts %}
 
-&#x20;   {
+   {
 
-&#x20;     "title"    : "{{ post.title | escape }}",
+     "title"    : "{{ post.title | escape }}",
 
-&#x20;     "category" : "{{ post.categories | join: ', ' }}",
+     "category" : "{{ post.categories | join: ', ' }}",
 
-&#x20;     "tags"     : "{{ post.tags | join: ', ' }}",
+     "tags"     : "{{ post.tags | join: ', ' }}",
 
-&#x20;     "url"      : "{{ site.baseurl }}{{ post.url }}",
+     "url"      : "{{ site.baseurl }}{{ post.url }}",
 
-&#x20;     "date"     : "{{ post.date | date: '%Y-%m-%d' }}",
+     "date"     : "{{ post.date | date: '%Y-%m-%d' }}",
 
-&#x20;     "excerpt"  : "{{ post.excerpt | strip_html | escape }}"
+     "excerpt"  : "{{ post.excerpt | strip_html | escape }}"
 
-&#x20;   }{% unless forloop.last %},{% endunless %}
+   }{% unless forloop.last %},{% endunless %}
 
-&#x20; {% endfor %}
+ {% endfor %}
 
-&#x20; {% for project in site.portfolio %}
+ {% for project in site.portfolio %}
 
-&#x20;   {
+   {
 
-&#x20;     "title"    : "{{ project.title | escape }}",
+     "title"    : "{{ project.title | escape }}",
 
-&#x20;     "category" : "{{ project.categories | join: ', ' }}",
+     "category" : "{{ project.categories | join: ', ' }}",
 
-&#x20;     "tags"     : "{{ project.tags | join: ', ' }}",
+     "tags"     : "{{ project.tags | join: ', ' }}",
 
-&#x20;     "url"      : "{{ site.baseurl }}{{ project.url }}",
+     "url"      : "{{ site.baseurl }}{{ project.url }}",
 
-&#x20;     "date"     : "{{ project.date | date: '%Y-%m-%d' }}",
+     "date"     : "{{ project.date | date: '%Y-%m-%d' }}",
 
-&#x20;     "excerpt"  : "{{ project.excerpt | strip_html | escape }}"
+     "excerpt"  : "{{ project.excerpt | strip_html | escape }}"
 
-&#x20;   }{% unless forloop.last %},{% endunless %}
+   }{% unless forloop.last %},{% endunless %}
 
-&#x20; {% endfor %}
+ {% endfor %}
 
 ]
 ```
@@ -953,15 +953,15 @@ search_provider: "simple-jekyll-search" # 指定使用Simple-Jekyll-Search作为
 
 search:
 
-&#x20; placeholder: "搜索文章、项目和标签..." # 搜索框的默认提示文本
+ placeholder: "搜索文章、项目和标签..." # 搜索框的默认提示文本
 
-&#x20; label: "搜索" # 搜索框的前置标签文本
+ label: "搜索" # 搜索框的前置标签文本
 
-&#x20; input_id: "search-input" # 搜索框的DOM元素ID
+ input_id: "search-input" # 搜索框的DOM元素ID
 
-&#x20; results_id: "results-container" # 搜索结果容器的DOM元素ID
+ results_id: "results-container" # 搜索结果容器的DOM元素ID
 
-&#x20; search_without_empty_query: true # 允许用户在不输入任何关键词的情况下，查看所有搜索结果
+ search_without_empty_query: true # 允许用户在不输入任何关键词的情况下，查看所有搜索结果
 ```
 
 
@@ -1184,7 +1184,7 @@ GitHub Pages 提供的默认域名（yourname.github.io），仅用于临时访�
 
 祝你写作、展示愉快！
 
-**参考资料&#x20;**
+**参考资料**
 
 [1] 实例讲解如何使用Jekyll搭建一个静态网站-CSDN博客[ https://blog.csdn.net/weixin_44026962/article/details/135724271](https://blog.csdn.net/weixin_44026962/article/details/135724271)
 
