@@ -794,15 +794,30 @@ hidden: false # 设为true时，该项目不会被索引，适合保密项目
 
 4. 完成所有配置后，点击页面底部的 “获取配置” 按钮，Giscus 会根据你的配置，自动生成一段 JavaScript 嵌入代码；需要将这段代码复制到剪贴板，后续会用它来配置 Minimal Mistakes 主题的评论系统。
 
+```JavaScript
+<script src="https://giscus.app/client.js"
+        data-repo="DesenbergChina/DesenbergChina.github.io"
+        data-repo-id="R_kgDOOqcA0A"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOOqcA0M4DE3wP"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="1"
+        data-input-position="top"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+```
+
 ### 4.3 集成到 Minimal Mistakes 主题
 
 在主题中，启用 Giscus 评论系统的配置非常简单，只需要在`_config.yml`文件中，添加几行配置项，即可完成集成，不需要额外修改任何 HTML 或 Liquid 模板代码。
 
-
-
 1. 打开项目根目录下的`_config.yml`文件，在文件的末尾，添加以下配置代码：
-
-
 
 ```
 # 评论系统配置
@@ -833,7 +848,6 @@ comments:
 ```
 
 上述配置项中，`repo_id`和`category_id`的值，需要替换成刚才在 Giscus 官网生成的配置代码中对应的属性值；这两个值是 Giscus 关联仓库 Discussions 的核心凭证，必须严格复制，不能有丝毫差错。
-
 
 
 1. 接下来，需要在`_config.yml`文件的`defaults`配置项中，确认所有文章和项目页面都已启用评论区功能 —— 在`defaults`配置项的`posts`和`pages`作用域下，确保`comments: true`配置项已存在；如果没有，需要手动添加这一配置项；
