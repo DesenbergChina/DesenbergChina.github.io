@@ -1,96 +1,242 @@
-{% assign share_url = page.url | absolute_url %}
-{% assign share_url_encoded = share_url | url_encode %}
-{% assign share_title_encoded = page.title | url_encode %}
+{% assign share_url = page.url | absolute_url %} {% assign share_url_encoded =
+share_url | url_encode %} {% assign share_title_encoded = page.title |
+url_encode %}
 
 <section class="page__share custom-share" aria-label="文章分享">
   <h4 class="page__share-title">分享这篇文章</h4>
 
   <div class="custom-share__buttons">
+    <!-- 浏览器 / 系统原生分享 -->
+    <button
+      type="button"
+      class="btn custom-share__btn"
+      data-share-title="{{ page.title | escape }}"
+      data-share-url="{{ page.url | absolute_url }}"
+      onclick="shareArticle(this)"
+      title="分享我"
+    >
+      <i class="fas fa-fw fa-share-nodes" aria-hidden="true"></i>
+      <span>分享</span>
+    </button>
 
-    <a class="btn custom-share__btn"
+    <a
+      class="btn custom-share__btn"
       href="https://service.weibo.com/share/share.php?url={{ share_url_encoded }}&title={{ share_title_encoded }}"
-      target="_blank" rel="noopener noreferrer" title="分享到微博">
+      target="_blank"
+      rel="noopener noreferrer"
+      title="分享到微博"
+    >
       <i class="fab fa-fw fa-weibo" aria-hidden="true"></i><span>微博</span>
     </a>
 
-    <a class="btn custom-share__btn" href="mailto:?subject={{ share_title_encoded }}&body={{ share_url_encoded }}"
-      title="通过邮件分享">
+    <a
+      class="btn custom-share__btn"
+      href="mailto:?subject={{ share_title_encoded }}&body={{ share_url_encoded }}"
+      title="通过邮件分享"
+    >
       <i class="fas fa-fw fa-envelope" aria-hidden="true"></i><span>邮件</span>
     </a>
 
-    <button type="button" class="btn custom-share__btn" data-share-url="{{ share_url }}" onclick="copyArticleLink(this)"
-      title="复制文章链接">
+    <button
+      type="button"
+      class="btn custom-share__btn"
+      data-share-url="{{ share_url }}"
+      onclick="copyArticleLink(this)"
+      title="复制文章链接"
+    >
       <i class="fas fa-fw fa-link" aria-hidden="true"></i>
       <span class="custom-share__copy-label">复制链接 </span>
     </button>
 
-    <a href="https://x.com/intent/tweet?{% if site.twitter.username %}via={{ site.twitter.username | url_encode }}&{% endif %}text={{ page.title | url_encode }}%20{{ page.url | absolute_url | url_encode }}"
-      class="btn btn--x" aria-label="Share on X"
-      onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
-      title="{{ site.data.ui-text[locale].share_on_label | default: 'Share on' }} X">
+    <a
+      href="https://x.com/intent/tweet?{% if site.twitter.username %}via={{ site.twitter.username | url_encode }}&{% endif %}text={{ page.title | url_encode }}%20{{ page.url | absolute_url | url_encode }}"
+      class="btn btn--x"
+      aria-label="Share on X"
+      onclick="
+        window.open(
+          this.href,
+          'window',
+          'left=20,top=20,width=500,height=500,toolbar=1,resizable=0',
+        );
+        return false;
+      "
+      title="{{ site.data.ui-text[locale].share_on_label | default: 'Share on' }} X"
+    >
       <i class="fab fa-fw fa-x-twitter" aria-hidden="true"></i><span> X</span>
     </a>
 
-    <a href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | absolute_url | url_encode }}"
-      class="btn btn--facebook" aria-label="Share on Facebook"
-      onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
-      title="{{ site.data.ui-text[locale].share_on_label | default: 'Share on' }} Facebook">
-      <i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span>
+    <a
+      href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | absolute_url | url_encode }}"
+      class="btn btn--facebook"
+      aria-label="Share on Facebook"
+      onclick="
+        window.open(
+          this.href,
+          'window',
+          'left=20,top=20,width=500,height=500,toolbar=1,resizable=0',
+        );
+        return false;
+      "
+      title="{{ site.data.ui-text[locale].share_on_label | default: 'Share on' }} Facebook"
+    >
+      <i class="fab fa-fw fa-facebook" aria-hidden="true"></i
+      ><span> Facebook</span>
     </a>
 
-    <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ page.url | absolute_url }}"
-      class="btn btn--linkedin" aria-label="Share on LinkedIn"
-      onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
-      title="{{ site.data.ui-text[locale].share_on_label | default: 'Share on' }} LinkedIn">
-      <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span>
+    <a
+      href="https://www.linkedin.com/shareArticle?mini=true&url={{ page.url | absolute_url }}"
+      class="btn btn--linkedin"
+      aria-label="Share on LinkedIn"
+      onclick="
+        window.open(
+          this.href,
+          'window',
+          'left=20,top=20,width=500,height=500,toolbar=1,resizable=0',
+        );
+        return false;
+      "
+      title="{{ site.data.ui-text[locale].share_on_label | default: 'Share on' }} LinkedIn"
+    >
+      <i class="fab fa-fw fa-linkedin" aria-hidden="true"></i
+      ><span> LinkedIn</span>
     </a>
 
-    <a href="https://bsky.app/intent/compose?text={{ page.title | url_encode }}%20{{ page.url | absolute_url | url_encode }}"
+    <a
+      href="https://bsky.app/intent/compose?text={{ page.title | url_encode }}%20{{ page.url | absolute_url | url_encode }}"
       class="btn btn--bluesky"
-      onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;"
-      title="{{ site.data.ui-text[locale].share_on_label | default: 'Share on' }} Bluesky">
-      <i class="fab fa-fw fa-bluesky" aria-hidden="true"></i><span> Bluesky</span>
+      onclick="
+        window.open(
+          this.href,
+          'window',
+          'left=20,top=20,width=500,height=500,toolbar=1,resizable=0',
+        );
+        return false;
+      "
+      title="{{ site.data.ui-text[locale].share_on_label | default: 'Share on' }} Bluesky"
+    >
+      <i class="fab fa-fw fa-bluesky" aria-hidden="true"></i
+      ><span> Bluesky</span>
     </a>
-
   </div>
 </section>
 
 <script>
-  function copyArticleLink(button) {
-    const url = button.dataset.shareUrl;
-    const label = button.querySelector(".custom-share__copy-label");
-    const oldText = label.textContent;
+   function copyArticleLink(button) {
+     const url = button.dataset.shareUrl;
+     const label = button.querySelector(".custom-share__copy-label");
+     const oldText = label.textContent;
 
-    const showResult = (text) => {
-      label.textContent = text;
-      setTimeout(() => label.textContent = oldText, 1500);
-    };
+     const showResult = (text) => {
+       label.textContent = text;
+       setTimeout(() => label.textContent = oldText, 1500);
+     };
 
-    if (navigator.clipboard && window.isSecureContext) {
-      navigator.clipboard.writeText(url)
-        .then(() => showResult("已复制"))
-        .catch(() => fallbackCopy(url, showResult));
-    } else {
-      fallbackCopy(url, showResult);
-    }
-  }
+     if (navigator.clipboard && window.isSecureContext) {
+       navigator.clipboard.writeText(url)
+         .then(() => showResult("已复制"))
+         .catch(() => fallbackCopy(url, showResult));
+     } else {
+       fallbackCopy(url, showResult);
+     }
+   }
 
-  function fallbackCopy(text, callback) {
-    const textarea = document.createElement("textarea");
-    textarea.value = text;
-    textarea.setAttribute("readonly", "");
-    textarea.style.position = "fixed";
-    textarea.style.opacity = "0";
-    document.body.appendChild(textarea);
-    textarea.select();
+   function fallbackCopy(text, callback) {
+     const textarea = document.createElement("textarea");
+     textarea.value = text;
+     textarea.setAttribute("readonly", "");
+     textarea.style.position = "fixed";
+     textarea.style.opacity = "0";
+     document.body.appendChild(textarea);
+     textarea.select();
 
-    try {
-      document.execCommand("copy");
-      callback("已复制");
-    } catch (e) {
-      callback("复制失败");
-    }
+     try {
+       document.execCommand("copy");
+       callback("已复制");
+     } catch (e) {
+       callback("复制失败");
+     }
 
-    document.body.removeChild(textarea);
-  }
+     document.body.removeChild(textarea);
+   }
+
+  async function shareArticle(button) {
+     const data = {
+       title: button.dataset.shareTitle,
+       url: button.dataset.shareUrl
+     };
+
+     if (navigator.share) {
+       try {
+         await navigator.share(data);
+       } catch (error) {
+         // 用户自己关闭分享窗口时，不做任何处理
+         if (error.name !== "AbortError") {
+           await copyText(data.url);
+         }
+       }
+     } else {
+       // 浏览器不支持系统分享时，退化为复制链接
+       await copyText(data.url);
+     }
+   }
+
+
+   async function copyArticleLink(button) {
+     const url = button.dataset.shareUrl;
+     const label = button.querySelector(".custom-share__copy-label");
+
+     const oldText = label.textContent;
+
+      try {
+       await copyText(url);
+
+       label.textContent = "已复制";
+
+       setTimeout(() => {
+         label.textContent = oldText;
+       }, 1500);
+
+     } catch (error) {
+       label.textContent = "复制失败";
+
+       setTimeout(() => {
+         label.textContent = oldText;
+       }, 1500);
+     }
+   }
+
+
+   function copyText(text) {
+     if (navigator.clipboard && window.isSecureContext) {
+       return navigator.clipboard.writeText(text);
+     }
+
+     return new Promise((resolve, reject) => {
+       const textarea = document.createElement("textarea");
+
+       textarea.value = text;
+       textarea.setAttribute("readonly", "");
+       textarea.style.position = "fixed";
+       textarea.style.opacity = "0";
+
+       document.body.appendChild(textarea);
+       textarea.select();
+
+       try {
+         const successful = document.execCommand("copy");
+
+         if (successful) {
+           resolve();
+         } else {
+           reject(new Error("复制失败"));
+         }
+       } catch (error) {
+         reject(error);
+       } finally {
+         document.body.removeChild(textarea);
+       }
+     });
+   }
 </script>
+
+
