@@ -801,7 +801,7 @@ hidden: false # 设为true时，该项目不会被索引，适合保密项目
         data-category="Announcements"
         data-category-id="DIC_kwDOOqcA0M4DE3wP"
         data-mapping="pathname"
-        data-strict="0"
+        data-strict="1"
         data-reactions-enabled="1"
         data-emit-metadata="1"
         data-input-position="top"
@@ -821,22 +821,20 @@ hidden: false # 设为true时，该项目不会被索引，适合保密项目
 
 ```
 # 评论系统配置
-
+repository: "你的用户名/你的用户名.github.io" # 你的仓库完整名称
 comments:
 
  provider: "giscus" # 指定使用Giscus作为评论系统
 
  giscus:
 
-   repo: "你的用户名/你的用户名.github.io" # 你的仓库完整名称
-
    repo_id: "上一步中获取的仓库ID" # 你的仓库的唯一ID，在Giscus生成的配置代码中可以找到
 
-   category: "Announcements" # 刚才在Discussions中创建的分类名称
+   category_name: "Announcements" # 刚才在Discussions中创建的分类名称
 
    category_id: "上一步中获取的分类ID" # 刚才创建的分类的唯一ID，在Giscus生成的配置代码中可以找到
 
-   mapping: "pathname" # 页面与Discussions主题的映射规则
+   discussion_term: "pathname" # 页面与Discussions主题的映射规则
 
    input_position: "top" # 评论输入框的位置，设置在评论区列表的上方
 
@@ -844,7 +842,7 @@ comments:
 
    lang: "zh-CN" # 评论区的显示语言，设置为简体中文
 
-   loading: "lazy" # 评论区的懒加载模式，只有用户滚动到评论区附近时，才加载评论数据
+   lazy:true # 评论区的懒加载模式，只有用户滚动到评论区附近时，才加载评论数据
 ```
 
 上述配置项中，`repo_id`和`category_id`的值，需要替换成刚才在 Giscus 官网生成的配置代码中对应的属性值；这两个值是 Giscus 关联仓库 Discussions 的核心凭证，必须严格复制，不能有丝毫差错。
