@@ -49,9 +49,7 @@ collections:
 
 permalink: /:categories/:title/ # 设置文章的URL结构，默认以分类和文章标题作为链接的相对路径
 
-
 # 默认配置项
-
 defaults:
   - scope:
       path: ""
@@ -71,6 +69,33 @@ defaults:
       layout: single
       author: default
       author_profile: true
+      comments: true
+
+# 评论系统配置
+
+comments:
+
+  provider: "giscus" # 指定使用Giscus作为评论系统
+
+  giscus:
+
+    repo: "DesenbergChina/DesenbergChina.github.io" # 你的仓库完整名称
+
+    repo_id: "R_kgDOOqcA0A" # 你的仓库的唯一ID，在Giscus生成的配置代码中可以找到
+
+    category: "Announcements" # 刚才在Discussions中创建的分类名称
+
+    category_id: "DIC_kwDOOqcA0M4DE3wP" # 刚才创建的分类的唯一ID，在Giscus生成的配置代码中可以找到
+
+    mapping: "pathname" # 页面与Discussions主题的映射规则
+
+    input_position: "top" # 评论输入框的位置，设置在评论区列表的上方
+
+    theme: "preferred_color_scheme" # 评论区的主题颜色，浅色模式
+
+    lang: "zh-CN" # 评论区的显示语言，设置为简体中文
+
+    loading: "lazy" # 评论区的懒加载模式，只有用户滚动到评论区附近时，才加载评论数据
 
 # Exclude from processing.
 # The following items will not be processed, by default.
