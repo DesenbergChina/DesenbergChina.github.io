@@ -47,7 +47,7 @@ collections:
     output: true
     permalink: /:path/
 
-permalink: /:categories/:title/ # 设置文章的URL结构，默认以分类和文章标题作为链接的相对路径
+permalink: /:categories/:year/:month-:day/:title:output_ext # 设置文章的URL结构，默认以分类和文章标题作为链接的相对路径
 
 # 默认配置项
 defaults:
@@ -124,3 +124,4 @@ exclude:
   - "**/*.py"
   - script/
   - docs/
+  - docs_local/
