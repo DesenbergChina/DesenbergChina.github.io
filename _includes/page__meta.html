@@ -34,8 +34,12 @@ post | default: page %} {% if document.read_time or document.show_date %}
     site.data.ui-text[locale].minute_read | default: "minute read" }} {% endif
     %}
   </span>
-  {% endif %} {% if page.layout == "single" %}
-  <span class="page__meta-sep"></span>
-  {% include page-views.html %} {% endif %}
+  {% endif %} 
+  {% if page.layout == "single" %}
+  {% unless include.type %}
+    <span class="page__meta-sep"></span>
+    {% include page-views.html %}
+  {% endunless %}
+{% endif %}
 </p>
 {% endif %}
