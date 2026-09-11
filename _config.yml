@@ -99,6 +99,9 @@ comments:
 
     lazy: true # 评论区的懒加载模式，只有用户滚动到评论区附近时，才加载评论数据
 
+analytics:
+  provider: "custom"
+
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to

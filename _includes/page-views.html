@@ -1,0 +1,21 @@
+<span class="page__meta-item page__views">
+  <i class="fas fa-fw fa-eye" aria-hidden="true"></i>
+  <span id="gc-pageviews"></span> 次阅读
+</span>
+
+<script>
+  (function () {
+    const timer = setInterval(function () {
+      if (!window.goatcounter || !window.goatcounter.visit_count) {
+        return;
+      }
+
+      clearInterval(timer);
+
+      window.goatcounter.visit_count({
+        append: "#gc-pageviews",
+        no_branding: true
+      });
+    }, 100);
+  })();
+</script>
