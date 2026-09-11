@@ -1,0 +1,68 @@
+{% if page.id %}
+<script>
+(function () {
+
+  const meta = document.querySelector(
+    ".page__inner-wrap > header > .page__meta"
+  );
+
+  if (!meta) return;
+
+
+  /* 创建阅读量区域 */
+  const views = document.createElement("span");
+
+  views.className = "page__meta-item page__views";
+
+  views.innerHTML =
+    '<span class="page__meta-sep"></span>' +
+    '<i class="fas fa-fw fa-eye" aria-hidden="true"></i>' +
+    '<span id="gc-pageviews">--</span> 次阅读';
+
+  meta.appendChild(views);
+
+
+  /* 等待 GoatCounter 加载 */
+  function loadPageViews() {
+
+    if (
+      !window.goatcounter ||
+      !window.goatcounter.get_data
+    ) {
+      setTimeout(loadPageViews, 100);
+      return;
+    }
+
+    const path = window.goatcounter.get_data().p;
+
+    fetch(
+      "https://desenbergchina.goatcounter.com/counter/" +
+      encodeURIComponent(path) +
+      ".json"
+    )
+      .then(function (response) {
+
+        if (response.status === 404) {
+          return { count: "0" };
+        }
+
+        if (!response.ok) {
+          throw new Error("GoatCounter request failed");
+        }
+
+        return response.json();
+      })
+      .then(function (data) {
+        document.getElementById("gc-pageviews").textContent =
+          data.count || "0";
+      })
+      .catch(function () {
+        document.getElementById("gc-pageviews").textContent = "--";
+      });
+  }
+
+  loadPageViews();
+
+})();
+</script>
+{% endif %}
