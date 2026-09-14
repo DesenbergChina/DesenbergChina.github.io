@@ -21,7 +21,7 @@ hidden: false
 
 工具目录：
 
-[Codex History Recovery](https://github.com/DesenbergChina/DesenbergChina.github.io/tree/main/tool/Codex-Desktop-重启后会话历史消失-原因无损恢复与一键修复工具)
+[Codex History Recovery](https://github.com/DesenbergChina/DesenbergChina.github.io/tree/main/tool/codex-history-recovery)
 
 ---
 
