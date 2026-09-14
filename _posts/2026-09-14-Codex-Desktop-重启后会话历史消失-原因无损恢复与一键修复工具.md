@@ -1,9 +1,10 @@
 ---
 layout: single
 title: "Codex Desktop 重启后会话历史消失：原因、无损恢复与一键修复工具"
+slug : "codex-history-recovery"
 excerpt: "记录 Codex Desktop 切换会话或重启后历史只剩第一条消息的问题，解释 expected ordinal / token_count 投影异常，并提供默认 Dry Run、自动备份、可批量恢复的 PowerShell 7 工具。"
-categories: 技术 Codex
-tags: [OpenAI Codex, PowerShell, SQLite, Windows, 故障排查]
+categories: 技术 Codex 故障修复
+tags: [OpenAI Codex, PowerShell, SQLite, Windows, 故障排查, 故障修复]
 hidden: false
 ---
 
