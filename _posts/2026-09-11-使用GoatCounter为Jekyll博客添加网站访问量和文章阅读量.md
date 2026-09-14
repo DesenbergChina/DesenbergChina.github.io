@@ -104,13 +104,13 @@ _includes/page__meta.html 不覆盖
 例如：
 
 ```text
-desenbergchina
+abcde
 ```
 
 那么统计地址就是：
 
 ```text
-https://desenbergchina.goatcounter.com
+https://abcde.goatcounter.com
 ```
 
 这里最容易犯的错误就是把 Code 写错。
@@ -118,7 +118,7 @@ https://desenbergchina.goatcounter.com
 例如真实 Code 是：
 
 ```text
-desenbergchina
+abcde
 ```
 
 但代码里却写成：
@@ -135,10 +135,10 @@ desenberg
 
 ```text
 Your site:
-desenbergchina.github.io
+abcde.github.io
 
 Code:
-desenbergchina
+abcde
 
 Allow adding visitor counts on your website:
 ✓
@@ -204,7 +204,7 @@ _includes/analytics-providers/custom.html
 
 ```html
 <script
-  data-goatcounter="https://desenbergchina.goatcounter.com/count"
+  data-goatcounter="https://abcde.goatcounter.com/count"
   async
   src="https://gc.zgo.at/count.js">
 </script>
@@ -213,7 +213,7 @@ _includes/analytics-providers/custom.html
 如果使用自己的站点，请把：
 
 ```text
-desenbergchina
+abcde
 ```
 
 替换成自己的 GoatCounter Code。
@@ -288,7 +288,7 @@ _includes/footer/custom.html
       : window.location.pathname;
 
   fetch(
-    "https://desenbergchina.goatcounter.com/counter/" +
+    "https://abcde.goatcounter.com/counter/" +
     encodeURIComponent(path) +
     ".json"
   )
@@ -318,7 +318,7 @@ _includes/footer/custom.html
 同样，如果是自己的 GoatCounter 站点，需要替换：
 
 ```text
-desenbergchina
+abcde
 ```
 
 ### 为什么使用 `page.collection == "posts"`？
@@ -469,7 +469,7 @@ _includes/site-stats.html
     return;
   }
 
-  fetch("https://desenbergchina.goatcounter.com/counter/TOTAL.json")
+  fetch("https://abcde.goatcounter.com/counter/TOTAL.json")
     .then(function (response) {
       if (response.status === 404) {
         return { count: "0" };
@@ -591,13 +591,13 @@ bundle exec jekyll serve --livereload --port 4100
 首先确认：
 
 ```html
-data-goatcounter="https://desenbergchina.goatcounter.com/count"
+data-goatcounter="https://abcde.goatcounter.com/count"
 ```
 
 中的：
 
 ```text
-desenbergchina
+abcde
 ```
 
 和 GoatCounter 后台的 Code 完全一致。
@@ -641,13 +641,13 @@ undefined
 首页累计访问：
 
 ```text
-https://desenbergchina.goatcounter.com/counter/TOTAL.json
+https://abcde.goatcounter.com/counter/TOTAL.json
 ```
 
 单篇文章则可以根据文章 path 测试：
 
 ```text
-https://desenbergchina.goatcounter.com/counter/[编码后的文章路径].json
+https://abcde.goatcounter.com/counter/[编码后的文章路径].json
 ```
 
 ### 5. 检查广告拦截器
@@ -774,7 +774,7 @@ page__meta.html
 
 最后记录几个实践中最容易遇到的问题：
 
-1. **GoatCounter Code 写错**：例如后台是 `desenbergchina`，代码却写成 `desenberg`，统计自然无法正常工作。
+1. **GoatCounter Code 写错**：例如后台是 `abcde`，代码却写成 `abc`，统计自然无法正常工作。
 2. **把 `visit_count()` 当成数字接口**：它实际会生成完整的 Visitor Counter UI，所以页面会突然出现紫色或带边框的 `Views for this page` 小组件。
 3. **直接覆盖 `page__meta.html`**：相关文章等位置也会调用这个 include，可能造成阅读量组件重复插入。
 4. **多个元素使用相同 `id`**：如果相关文章和正文同时产生 `id="gc-pageviews"`，JavaScript 只会找到第一个元素，结果多个计数器可能挤在一起。
