@@ -7,6 +7,9 @@ categories: 技术 Codex 故障修复
 tags: [OpenAI Codex, PowerShell, SQLite, Windows, 故障排查, 故障修复]
 hidden: false
 ---
+## 后续补充
+
+我发现和会话有关的bug和我的codex cil版本太低有关系，后续升级到0.154.0版本就好了
 
 ## 前言
 
@@ -155,7 +158,7 @@ Windows 10 / 11
 PowerShell 7+
 Python 3
 Node.js + npm / npx
-Codex Desktop
+Codex Desktop（Codex cil 是老版本 0.146）
 ```
 
 脚本支持 `CODEX_HOME`，不会写死 Windows 用户目录；备份目录通过系统 API 获取真实 Desktop，因此也适用于 OneDrive 或桌面重定向。
