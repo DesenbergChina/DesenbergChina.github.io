@@ -1,6 +1,7 @@
 ---
 layout: single
 title: "使用 GoatCounter 为 Jekyll + GitHub Pages 显示网站累计访问量与文章阅读量"
+slug: "GoatCounter for displaying the cumulative number of visits and articles read"
 excerpt: "记录在 Minimal Mistakes 主题中接入 GoatCounter 的完整实践：不覆盖核心 layout，通过 custom analytics、footer/custom.html 和首页 include 显示全站累计访问量与单篇文章阅读量。"
 categories: 技术 Jekyll
 tags: [Jekyll, GitHub Pages, Minimal Mistakes, GoatCounter, 网站统计, 阅读量]
