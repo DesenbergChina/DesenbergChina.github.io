@@ -1,6 +1,7 @@
 ---
 layout: single
 title: "Windows 自定义 D 盘安装并升级 Claude Code：从 Native 迁移到 npm-global 的完整实践"
+slug: "Customize the D drive for installation and then upgrade of Claude Code"
 excerpt: "记录一次 Windows 下 Claude Code 从自定义 Native 安装迁移到 D 盘 npm-global 管理的完整过程，涵盖安装位置冲突、网络下载失败、旧版本清理、诊断验证与后续一条命令升级。"
 categories: 技术 AI工具
 tags: [Claude Code, Anthropic, Windows, PowerShell, npm, 开发工具]
