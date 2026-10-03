@@ -35,6 +35,8 @@ Path: D:\APPz\claudeCode\node_modules\@anthropic-ai\claude-code\bin\claude.exe
 
 后续升级只需要一条命令：
 
+> 注意⚠️: 安装路径,如"D:\APPz\claudeCode",根据实际情况变化
+
 ```powershell
 npm install -g --prefix "D:\APPz\claudeCode" @anthropic-ai/claude-code@latest
 ```
