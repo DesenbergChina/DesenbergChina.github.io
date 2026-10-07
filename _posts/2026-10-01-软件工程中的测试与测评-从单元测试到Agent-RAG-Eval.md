@@ -5,7 +5,6 @@ slug: "software-testing-and-evaluation-guide"
 excerpt: "系统梳理软件工程中的单元测试、集成测试、系统测试、端到端测试、验收测试、冒烟测试、回归测试，以及脚本化评测、AI/LLM/RAG/Agent Eval 的概念、边界和使用场景。"
 categories: 技术 软件工程 测试
 tags: [软件工程, 软件测试, Unit Test, Integration Test, E2E, Smoke Test, Regression Test, Eval, RAG, Agent, LLM]
-hidden: false
 ---
 
 ## 前言
