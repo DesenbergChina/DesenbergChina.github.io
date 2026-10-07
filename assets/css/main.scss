@@ -7,6 +7,16 @@ search: false
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}";
 @import "minimal-mistakes";
 
+/* =========================
+  作者头像
+  ========================= */
+
+.author__avatar img {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 50%;
+}
 
 /* =========================
    分享区域
