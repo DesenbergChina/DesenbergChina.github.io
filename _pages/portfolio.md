@@ -8,7 +8,7 @@ permalink: /portfolio/
 
 collection: portfolio
 
-entries\_layout: grid
+entries_layout: grid
 
 columns: 2
 

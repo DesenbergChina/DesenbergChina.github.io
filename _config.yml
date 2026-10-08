@@ -46,6 +46,9 @@ collections:
   pages:
     output: true
     permalink: /:path/
+  portfolio:
+    output: true
+    permalink: /portfolio/:path/
 
 permalink: /:categories/:year/:month-:day/:title:output_ext # 设置文章的URL结构，默认以分类和文章标题作为链接的相对路径
 
@@ -102,6 +105,10 @@ comments:
 analytics:
   provider: "custom"
 
+
+# 搜索服务
+search: false # false 可以使得不会出现🔍 导航按钮在页面上
+search_provider: lunr
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
