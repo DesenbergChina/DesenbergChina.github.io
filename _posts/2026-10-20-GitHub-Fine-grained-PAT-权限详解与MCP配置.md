@@ -427,13 +427,7 @@ Token 生成后仅保存到可靠的凭据管理位置。不要提交至 Git 仓
 }
 ```
 
-上例中的 `${input:github_mcp_pat}` 应写为 VS Code 输入变量 `${input:github_mcp_pat}`（见下文），不是粘贴真实 Token。最终 `Authorization` 行应该是：
-
-```json
-"Authorization": "Bearer ${input:github_mcp_pat}"
-```
-
-VS Code 在启动 MCP 时会提示输入凭据。这样比在 JSON 文件中直接存明文令牌更合理。
+上例直接使用 VS Code 的 `${input:github_mcp_pat}` 输入变量，而不是把真实 Token 写进 JSON 文件。`password: true` 会使凭据以密码输入方式提供；启动 MCP 时按提示输入即可。
 
 如果只允许 AI 读取，给 `headers` 再加：
 
